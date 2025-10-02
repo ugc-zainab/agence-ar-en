@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UGC Maroc | Agence de Contenu Généré par les Utilisateurs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        :root {
+            --primary: #4361ee;
+            --secondary: #3f37c9;
+            --accent: #4cc9f0;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #4ade80;
+            --warning: #facc15;
+            --danger: #f87171;
+            --facebook: #1877f2;
+            --instagram: #e1306c;
+            --tiktok: #69c9d0;
+            --white: #ffffff;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .rtl {
+            direction: rtl;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .btn:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .language-switcher {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .lang-btn {
+            padding: 8px 15px;
+            border-radius: 20px;
+            background: var(--light-gray);
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 100px;
+            background: linear-gradient(135deg, #f5f7ff 0%, #e6f0ff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: var(--accent);
+            opacity: 0.1;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+            line-height: 1.2;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--gray);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .hero-image {
+            flex: 1;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        /* Services Section */
+        .services {
+            background: var(--white);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            text-align: center;
+            border-top: 4px solid var(--primary);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(67, 97, 238, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+
+        .service-card.facebook .service-icon {
+            background: rgba(24, 119, 242, 0.1);
+            color: var(--facebook);
+        }
+
+        .service-card.instagram .service-icon {
+            background: rgba(225, 48, 108, 0.1);
+            color: var(--instagram);
+        }
+
+        .service-card.tiktok .service-icon {
+            background: rgba(105, 201, 208, 0.1);
+            color: var(--tiktok);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            background: linear-gradient(135deg, #f0f4ff 0%, #e6f0ff 100%);
+        }
+
+        .portfolio-filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 8px 20px;
+            border-radius: 20px;
+            background: var(--light-gray);
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .portfolio-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(67, 97, 238, 0.9);
+            padding: 20px;
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            transform: translateY(0);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: var(--white);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--light);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 4rem;
+            color: var(--primary);
+            opacity: 0.2;
+            font-family: Georgia, serif;
+        }
+
+        .testimonial-content {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .client-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .client-details h4 {
+            margin-bottom: 5px;
+        }
+
+        .client-details p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #f0f4ff 0%, #e6f0ff 100%);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 15px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                background: white;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+                transition: clip-path 0.4s ease;
+            }
+            
+            .nav-links.active {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+            
+            .hero-text h1 {
+                font-size: 2.3rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Arabic Font */
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap');
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-icon">UGC</div>
+                <div class="logo-text">UGC Maroc</div>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="nav-links" id="navLinks">
+                <a href="#home" data-en="Home" data-ar="الرئيسية">Home</a>
+                <a href="#services" data-en="Services" data-ar="الخدمات">Services</a>
+                <a href="#portfolio" data-en="Portfolio" data-ar="الأعمال">Portfolio</a>
+                <a href="#testimonials" data-en="Testimonials" data-ar="آراء العملاء">Testimonials</a>
+                <a href="#contact" data-en="Contact" data-ar="اتصل بنا">Contact</a>
+            </nav>
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="ar">AR</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1 data-en="Elevate Your Brand with Authentic User-Generated Content" data-ar="ارفع علامتك التجارية بمحتوى أصيل من صنع المستخدمين">Elevate Your Brand with Authentic User-Generated Content</h1>
+                <p data-en="We specialize in creating high-converting UGC campaigns for Facebook, Instagram, and TikTok that drive engagement and boost sales." data-ar="نحن متخصصون في إنشاء حملات محتوى من صنع المستخدمين عالية التحويل لفيسبوك وإنستغرام وتيك توك التي تدفع التفاعل وتعزز المبيعات.">We specialize in creating high-converting UGC campaigns for Facebook, Instagram, and TikTok that drive engagement and boost sales.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn" data-en="Get Started" data-ar="ابدأ الآن">Get Started</a>
+                    <a href="#portfolio" class="btn btn-outline" data-en="View Our Work" data-ar="شاهد أعمالنا">View Our Work</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="assits/hero.jpg" alt="UGC Content Creation">
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-en="Our Services" data-ar="خدماتنا">Our Services</h2>
+                <p data-en="We offer specialized UGC and advertising services tailored to each platform" data-ar="نحن نقدم خدمات محتوى من صنع المستخدمين والإعلانات المتخصصة المصممة خصيصًا لكل منصة">We offer specialized UGC and advertising services tailored to each platform</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card ugc">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 data-en="UGC Creation" data-ar="إنشاء محتوى من صنع المستخدمين">UGC Creation</h3>
+                    <p data-en="Authentic, relatable content created by real people that resonates with your target audience." data-ar="محتوى أصيل وقريب من الجمهور يتم إنشاؤه بواسطة أشخاص حقيقيين يلامس جمهورك المستهدف.">Authentic, relatable content created by real people that resonates with your target audience.</p>
+                </div>
+                <div class="service-card facebook">
+                    <div class="service-icon">
+                        <i class="fab fa-facebook-f"></i>
+                    </div>
+                    <h3 data-en="Facebook Ads" data-ar="إعلانات فيسبوك">Facebook Ads</h3>
+                    <p data-en="Strategic ad campaigns that leverage Facebook's powerful targeting capabilities to reach your ideal customers." data-ar="حملات إعلانية استراتيجية تستفيد من إمكانيات الاستهداف القوية لفيسبوك للوصول إلى عملائك المثاليين.">Strategic ad campaigns that leverage Facebook's powerful targeting capabilities to reach your ideal customers.</p>
+                </div>
+                <div class="service-card instagram">
+                    <div class="service-icon">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <h3 data-en="Instagram Ads" data-ar="إعلانات إنستغرام">Instagram Ads</h3>
+                    <p data-en="Visually stunning ads that integrate seamlessly into Instagram feeds and stories to drive engagement." data-ar="إعلانات بصرية مذهلة تندمج بسلاسة في خلاصات قصص إنستغرام لدفع التفاعل.">Visually stunning ads that integrate seamlessly into Instagram feeds and stories to drive engagement.</p>
+                </div>
+                <div class="service-card tiktok">
+                    <div class="service-icon">
+                        <i class="fab fa-tiktok"></i>
+                    </div>
+                    <h3 data-en="TikTok Ads" data-ar="إعلانات تيك توك">TikTok Ads</h3>
+                    <p data-en="Trend-driven, viral-ready content that captures attention in the fast-paced TikTok environment." data-ar="محتوى مدفوع بالاتجاهات وجاهز للانتشار يجذب الانتباه في بيئة تيك توك سريعة الحركة.">Trend-driven, viral-ready content that captures attention in the fast-paced TikTok environment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-en="Our Portfolio" data-ar="أعمالنا">Our Portfolio</h2>
+                <p data-en="Explore our successful campaigns across different platforms" data-ar="استكشف حملاتنا الناجحة عبر المنصات المختلفة">Explore our successful campaigns across different platforms</p>
+            </div>
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all" data-en="All" data-ar="الكل">All</button>
+                <button class="filter-btn" data-filter="facebook" data-en="Facebook" data-ar="فيسبوك">Facebook</button>
+                <button class="filter-btn" data-filter="instagram" data-en="Instagram" data-ar="إنستغرام">Instagram</button>
+                <button class="filter-btn" data-filter="tiktok" data-en="TikTok" data-ar="تيك توك">TikTok</button>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="facebook">
+                    <img src="https://placehold.co/600x400/1877f2/ffffff?text=Facebook+Ad" alt="Facebook Campaign">
+                    <div class="portfolio-overlay">
+                        <h3 data-en="Beauty Brand Campaign" data-ar="حملة لعلامة تجميل">Beauty Brand Campaign</h3>
+                        <p data-en="Increased conversions by 45% in 3 months" data-ar="زيادة التحويلات بنسبة 45% خلال 3 أشهر">Increased conversions by 45% in 3 months</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="instagram">
+                    <img src="https://placehold.co/600x400/e1306c/ffffff?text=Instagram+Ad" alt="Instagram Campaign">
+                    <div class="portfolio-overlay">
+                        <h3 data-en="Fashion Launch" data-ar="إطلاق علامة أزياء">Fashion Launch</h3>
+                        <p data-en="Generated 2M+ impressions in 2 weeks" data-ar="حقق أكثر من 2 مليون ظهور في أسبوعين">Generated 2M+ impressions in 2 weeks</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="tiktok">
+                    <img src="https://placehold.co/600x400/69c9d0/ffffff?text=TikTok+Ad" alt="TikTok Campaign">
+                    <div class="portfolio-overlay">
+                        <h3 data-en="Tech Product Viral" data-ar="منتج تقني فيروسي">Tech Product Viral</h3>
+                        <p data-en="Reached 5M+ users with 12% engagement" data-ar="وصل إلى أكثر من 5 مليون مستخدم مع معدل تفاعل 12%">Reached 5M+ users with 12% engagement</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="facebook">
+                    <img src="https://placehold.co/600x400/1877f2/ffffff?text=Facebook+UGC" alt="Facebook UGC">
+                    <div class="portfolio-overlay">
+                        <h3 data-en="E-commerce UGC" data-ar="محتوى من صنع المستخدمين للتجارة الإلكترونية">E-commerce UGC</h3>
+                        <p data-en="Boosted sales by 60% with authentic reviews" data-ar="زيادة المبيعات بنسبة 60% مع مراجعات أصيلة">Boosted sales by 60% with authentic reviews</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="instagram">
+                    <img src="https://placehold.co/600x400/e1306c/ffffff?text=Instagram+UGC" alt="Instagram UGC">
+                    <div class="portfolio-overlay">
+                        <h3 data-en="Restaurant Promotion" data-ar="ترويج مطعم">Restaurant Promotion</h3>
+                        <p data-en="Filled reservations for 3 months straight" data-ar="حجز كامل لمدة 3 أشهر متتالية">Filled reservations for 3 months straight</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="tiktok">
+                    <img src="https://placehold.co/600x400/69c9d0/ffffff?text=TikTok+UGC" alt="TikTok UGC">
+                    <div class="portfolio-overlay">
+                        <h3 data-en="Fitness Challenge" data-ar="تحدي لياقة بدنية">Fitness Challenge</h3>
+                        <p data-en="Created 500+ UGC videos from customers" data-ar="إنشاء أكثر من 500 مقطع فيديو من صنع العملاء">Created 500+ UGC videos from customers</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-en="Client Testimonials" data-ar="آراء العملاء">Client Testimonials</h2>
+                <p data-en="Hear what our clients say about our UGC services" data-ar="استمع إلى ما يقوله عملاؤنا عن خدماتنا">Hear what our clients say about our UGC services</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p data-en="Working with UGC Maroc transformed our social media presence. Their authentic content approach increased our engagement by 200%!" data-ar="العمل مع UGC Maroc حوّل وجودنا على وسائل التواصل الاجتماعي. زاد نهجهم في المحتوى الأصيل تفاعلنا بنسبة 200%!">Working with UGC Maroc transformed our social media presence. Their authentic content approach increased our engagement by 200%!</p>
+                    </div>
+                    <div class="client-info">
+                        <div class="client-avatar">A</div>
+                        <div class="client-details">
+                            <h4 data-en="Amina Benali" data-ar="أمينة بنعلي">Amina Benali</h4>
+                            <p data-en="Marketing Director, Casablanca Fashion" data-ar="مديرة تسويق، أزياء الدار البيضاء">Marketing Director, Casablanca Fashion</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p data-en="The TikTok campaign they created for us went viral! We gained 50K new followers in just two weeks and saw a significant sales boost." data-ar="الحملة التي أنشأوها لنا على تيك توك أصبحت فيروسية! اكتسبنا 50 ألف متابع جديد في أسبوعين فقط وشهدنا زيادة كبيرة في المبيعات.">The TikTok campaign they created for us went viral! We gained 50K new followers in just two weeks and saw a significant sales boost.</p>
+                    </div>
+                    <div class="client-info">
+                        <div class="client-avatar">Y</div>
+                        <div class="client-details">
+                            <h4 data-en="Youssef El Amrani" data-ar="يوسف العمراوي">Youssef El Amrani</h4>
+                            <p data-en="CEO, TechStart Morocco" data-ar="المدير التنفيذي، تك ستارت المغرب">CEO, TechStart Morocco</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p data-en="Their Facebook ad strategy helped us reach our target audience effectively. We've seen a 35% increase in ROI since partnering with them." data-ar="ساعدتنا استراتيجية إعلاناتهم على فيسبوك في الوصول إلى جمهورنا المستهدف بشكل فعال. شهدنا زيادة بنسبة 35% في العائد على الاستثمار منذ شراكتنا معهم.">Their Facebook ad strategy helped us reach our target audience effectively. We've seen a 35% increase in ROI since partnering with them.</p>
+                    </div>
+                    <div class="client-info">
+                        <div class="client-avatar">L</div>
+                        <div class="client-details">
+                            <h4 data-en="Leila Kabbaj" data-ar="ليلى القباج">Leila Kabbaj</h4>
+                            <p data-en="Founder, Marrakech Beauty" data-ar="مؤسسة، مراكش للجمال">Founder, Marrakech Beauty</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-en="Contact Us" data-ar="اتصل بنا">Contact Us</h2>
+                <p data-en="Ready to elevate your brand with authentic UGC? Get in touch!" data-ar="هل أنت مستعد لرفع علامتك التجارية بمحتوى أصيل من صنع المستخدمين؟ تواصل معنا!">Ready to elevate your brand with authentic UGC? Get in touch!</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3 data-en="Our Location" data-ar="موقعنا">Our Location</h3>
+                            <p data-en="Casablanca, Morocco" data-ar="الدار البيضاء، المغرب">Casablanca, Morocco</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h3 data-en="Phone Number" data-ar="رقم الهاتف">Phone Number</h3>
+                            <p data-en="+212 6XX-XXXXXX" data-ar="+212 6XX-XXXXXX">+212 6XX-XXXXXX</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3 data-en="Email Address" data-ar="عنوان البريد الإلكتروني">Email Address</h3>
+                            <p data-en="hello@ugcmaroc.ma" data-ar="hello@ugcmaroc.ma">hello@ugcmaroc.ma</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" placeholder="Name" data-en="Name" data-ar="الاسم" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Email" data-en="Email" data-ar="البريد الإلكتروني" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Subject" data-en="Subject" data-ar="الموضوع" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Message" data-en="Message" data-ar="الرسالة" required></textarea>
+                        </div>
+                        <button type="submit" class="btn" data-en="Send Message" data-ar="إرسال الرسالة">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo">
+                        <div class="logo-icon">UGC</div>
+                        <div class="logo-text">UGC Maroc</div>
+                    </div>
+                    <p data-en="Morocco's leading UGC agency specializing in authentic content creation for social media platforms." data-ar="الوكالة الرائدة في المغرب في مجال محتوى من صنع المستخدمين المتخصصة في إنشاء محتوى أصيل لمنصات التواصل الاجتماعي.">Morocco's leading UGC agency specializing in authentic content creation for social media platforms.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3 data-en="Quick Links" data-ar="روابط سريعة">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home" data-en="Home" data-ar="الرئيسية">Home</a></li>
+                        <li><a href="#services" data-en="Services" data-ar="الخدمات">Services</a></li>
+                        <li><a href="#portfolio" data-en="Portfolio" data-ar="الأعمال">Portfolio</a></li>
+                        <li><a href="#testimonials" data-en="Testimonials" data-ar="آراء العملاء">Testimonials</a></li>
+                        <li><a href="#contact" data-en="Contact" data-ar="اتصل بنا">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 data-en="Services" data-ar="الخدمات">Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" data-en="UGC Creation" data-ar="إنشاء محتوى من صنع المستخدمين">UGC Creation</a></li>
+                        <li><a href="#" data-en="Facebook Ads" data-ar="إعلانات فيسبوك">Facebook Ads</a></li>
+                        <li><a href="#" data-en="Instagram Ads" data-ar="إعلانات إنستغرام">Instagram Ads</a></li>
+                        <li><a href="#" data-en="TikTok Ads" data-ar="إعلانات تيك توك">TikTok Ads</a></li>
+                        <li><a href="#" data-en="Social Media Strategy" data-ar="استراتيجية وسائل التواصل الاجتماعي">Social Media Strategy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 data-en="Newsletter" data-ar="النشرة الإخبارية">Newsletter</h3>
+                    <p data-en="Subscribe to our newsletter for the latest UGC trends and tips." data-ar="اشترك في نشرتنا الإخبارية للحصول على أحدث اتجاهات ونصائح محتوى من صنع المستخدمين.">Subscribe to our newsletter for the latest UGC trends and tips.</p>
+                    <form class="newsletter-form">
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" data-en="Your Email" data-ar="بريدك الإلكتروني" required>
+                        </div>
+                        <button type="submit" class="btn" data-en="Subscribe" data-ar="اشترك">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p data-en="&copy; 2023 UGC Maroc. All rights reserved." data-ar="&copy; 2023 UGC Maroc. جميع الحقوق محفوظة.">&copy; 2023 UGC Maroc. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Language switching functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const langBtns = document.querySelectorAll('.lang-btn');
+            const translatableElements = document.querySelectorAll('[data-en]');
+            const html = document.documentElement;
+            
+            // Set initial language based on browser language or default to English
+            const browserLang = navigator.language.startsWith('ar') ? 'ar' : 'en';
+            let currentLang = localStorage.getItem('language') || browserLang;
+            
+            // Apply initial language
+            setLanguage(currentLang);
+            
+            // Language button event listeners
+            langBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    setLanguage(lang);
+                    localStorage.setItem('language', lang);
+                });
+            });
+            
+            function setLanguage(lang) {
+                currentLang = lang;
+                
+                // Update active button
+                langBtns.forEach(btn => {
+                    if(btn.getAttribute('data-lang') === lang) {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
+                });
+                
+                // Update all translatable elements
+                translatableElements.forEach(el => {
+                    el.textContent = el.getAttribute(`data-${lang}`);
+                });
+                
+                // Update direction for Arabic
+                if(lang === 'ar') {
+                    html.setAttribute('dir', 'rtl');
+                    html.classList.add('rtl');
+                } else {
+                    html.setAttribute('dir', 'ltr');
+                    html.classList.remove('rtl');
+                }
+            }
+            
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+            
+            // Close mobile menu when clicking a link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', function() {
+                    navLinks.classList.remove('active');
+                });
+            });
+            
+            // Portfolio filtering
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Update active button
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter items
+                    portfolioItems.forEach(item => {
+                        if(filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Form submission
+            const contactForm = document.getElementById('contactForm');
+            if(contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // In a real implementation, you would send the form data to a server
+                    alert(currentLang === 'ar' ? 'تم إرسال رسالتك بنجاح!' : 'Your message has been sent successfully!');
+                    this.reset();
+                });
+            }
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
